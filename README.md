@@ -1,9 +1,9 @@
 Nodejs Demos
 ============
 
-To run nodejs demos, first install scion and xml2jsonml:
+To run nodejs demos, first install scion:
 
-    npm install scion xml2jsonml
+    npm install scion
 
 Each individual demo has a README in its directory with further instructions.
 
