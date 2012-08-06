@@ -170,13 +170,7 @@ $(document).ready(function(){
                         if(err) throw err;
 
                         //instantiate statechart
-                        var interpreter = new scion.SCXML(model,
-                            {
-                                //globalEval is used to execute any top-level script children of the scxml element
-                                //use of jQuery's global-eval is optional
-                                //TODO: cite that blog post about global-eval
-                                globalEval : jQuery.globalEval
-                            });
+                        var interpreter = new scion.SCXML(model)
                         
                         svg.statechart = interpreter;   //hook up dom node reference
 
