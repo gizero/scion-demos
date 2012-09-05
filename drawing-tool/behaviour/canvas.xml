@@ -73,12 +73,11 @@ In both:
     name="Canvas">
 
     <script src="canvas.js"/>
-
+    <script src="../transform.js" type="text/javascript"/>
 
     <datamodel>
         <!-- these get passed in on initiation -->
         <data id="svg"/>
-        <data id="transformModule"/> <!-- TODO: just use script src to pull in transformModule-->
         <data id="scaleHandle"/>
         <data id="rotationHandle"/>
 
@@ -102,7 +101,6 @@ In both:
     <state id="initial_default">
         <transition event="init" target="main">
             <assign location="svg" expr="_event.data.svg"/>
-            <assign location="transformModule" expr="_event.data.transformModule"/>
             <assign location="scaleHandle" expr="_event.data.scaleHandle"/>
             <assign location="rotationHandle" expr="_event.data.rotationHandle"/>
 
@@ -148,7 +146,7 @@ In both:
                 <state id="nodes_selected" initial="ready_to_scale">
 
                     <onentry>
-                        <assign location="cachedCenterPoint" expr="getAggregateCenterPoint(selectedNodes,transformModule)"/>
+                        <assign location="cachedCenterPoint" expr="getAggregateCenterPoint(selectedNodes)"/>
                         <assign location="cachedBBox" expr="getAggregateBBox(selectedNodes)"/>
                         <script>
                             updateTransformHandles(selectedNodes);
@@ -410,7 +408,7 @@ In both:
                 </transition>
                 <transition target="ready" event="mouseup">
                     <assign location="tDelta" expr="computeTDelta(firstEvent,eventStamp)"/>
-                    <assign location="cachedCenterPoint" expr="getAggregateCenterPoint(selectedNodes,transformModule)"/>
+                    <assign location="cachedCenterPoint" expr="getAggregateCenterPoint(selectedNodes)"/>
                     <assign location="cachedBBox" expr="getAggregateBBox(selectedNodes)"/>
                     <!-- TODO -->
                     <script>

@@ -15,7 +15,7 @@
  * limitations under the License.
 */
 
-svgLib = (function(){ 
+var transformModule = (function(){ 
 
 
     function getBoundingBoxInArbitrarySpace(element,mat){
